@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App - Minimalist Task Manager</title>
+    <meta name="description"
+        content="A beautiful minimalist dark mode todo app with categories, priorities, and smart filtering">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="app-title">
+                    <span class="title-icon">✓</span>
+                    Todo
+                </h1>
+                <div class="header-stats">
+                    <span id="stats-total" class="stat-item">0 tasks</span>
+                    <span class="stat-divider">•</span>
+                    <span id="stats-completed" class="stat-item">0 done</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="app-main">
+            <!-- Add Todo Section -->
+            <section class="add-todo-section">
+                <form id="todo-form" class="todo-form">
+                    <div class="form-row">
+                        <input type="text" id="todo-input" class="todo-input" placeholder="What needs to be done?"
+                            required>
+                        <button type="button" class="btn-voice" id="voice-btn" title="Voice input">
+                            <span class="btn-icon">🎤</span>
+                        </button>
+                        <button type="submit" class="btn-add" id="add-btn">
+                            <span class="btn-icon">+</span>
+                            Add
+                        </button>
+                    </div>
+
+                    <div class="voice-controls">
+                        <label for="language-select" class="option-label">Voice Language</label>
+                        <select id="language-select" class="option-input language-select">
+                            <option value="ar-SA">العربية (Arabic)</option>
+                            <option value="fr-FR">Français (French)</option>
+                            <option value="en-US" selected>English</option>
+                        </select>
+                        <span id="voice-status" class="voice-status"></span>
+                    </div>
+
+                    <div class="form-options">
+                        <div class="option-group">
+                            <label for="category-input" class="option-label">Category</label>
+                            <input type="text" id="category-input" class="option-input"
+                                placeholder="e.g., Work, Personal" list="category-suggestions">
+                            <datalist id="category-suggestions"></datalist>
+                        </div>
+
+                        <div class="option-group">
+                            <label for="due-date-input" class="option-label">Due Date</label>
+                            <input type="date" id="due-date-input" class="option-input">
+                        </div>
+
+                        <div class="option-group">
+                            <label for="priority-input" class="option-label">Priority</label>
+                            <select id="priority-input" class="option-input">
+                                <option value="low">Low</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Filters Section -->
+            <section class="filters-section">
+                <div class="filter-group">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="active">Active</button>
+                    <button class="filter-btn" data-filter="completed">Completed</button>
+                </div>
+
+                <div class="search-group">
+                    <input type="text" id="search-input" class="search-input" placeholder="Search tasks...">
+                </div>
+
+                <div class="category-filter-group" id="category-filters">
+                    <!-- Dynamic category filters will be added here -->
+                </div>
+            </section>
+
+            <!-- Todos List -->
+            <section class="todos-section">
+                <div id="todos-container" class="todos-container">
+                    <!-- Todos will be dynamically added here -->
+                </div>
+
+                <div id="empty-state" class="empty-state">
+                    <div class="empty-icon">📝</div>
+                    <h2 class="empty-title">No tasks yet</h2>
+                    <p class="empty-text">Add your first task to get started</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <button id="clear-completed" class="btn-clear">Clear Completed</button>
+            <button id="clear-all" class="btn-clear-all">Clear All</button>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
