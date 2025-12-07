@@ -25,6 +25,9 @@ const categorySuggestions = document.getElementById('category-suggestions');
 const voiceBtn = document.getElementById('voice-btn');
 const languageSelect = document.getElementById('language-select');
 const voiceStatus = document.getElementById('voice-status');
+const addHeaderBtn = document.getElementById('add-header-btn');
+const addTodoSection = document.getElementById('add-todo-section');
+const discardBtn = document.getElementById('discard-btn');
 
 // Voice Recognition
 let recognition = null;
@@ -48,6 +51,23 @@ function attachEventListeners() {
     clearCompletedBtn.addEventListener('click', handleClearCompleted);
     clearAllBtn.addEventListener('click', handleClearAll);
     voiceBtn.addEventListener('click', toggleVoiceRecognition);
+    addHeaderBtn.addEventListener('click', toggleAddTodoSection);
+    discardBtn.addEventListener('click', handleDiscardTodo);
+}
+
+// Toggle Add Todo Section
+function toggleAddTodoSection() {
+    addTodoSection.classList.toggle('hidden');
+    if (!addTodoSection.classList.contains('hidden')) {
+        todoInput.focus();
+    }
+}
+
+// Handle Discard Todo
+function handleDiscardTodo() {
+    todoForm.reset();
+    priorityInput.value = 'medium';
+    addTodoSection.classList.add('hidden');
 }
 
 // Voice Recognition Setup
@@ -184,7 +204,9 @@ function handleAddTodo(e) {
     // Reset form
     todoForm.reset();
     priorityInput.value = 'medium';
-    todoInput.focus();
+
+    // Hide the add todo section
+    addTodoSection.classList.add('hidden');
 
     // Add animation
     const firstTodo = todosContainer.querySelector('.todo-item');

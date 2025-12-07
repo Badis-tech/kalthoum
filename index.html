@@ -22,10 +22,15 @@
                     <span class="title-icon">✓</span>
                     Todo
                 </h1>
-                <div class="header-stats">
-                    <span id="stats-total" class="stat-item">0 tasks</span>
-                    <span class="stat-divider">•</span>
-                    <span id="stats-completed" class="stat-item">0 done</span>
+                <div class="header-right">
+                    <div class="header-stats">
+                        <span id="stats-total" class="stat-item">0 tasks</span>
+                        <span class="stat-divider">•</span>
+                        <span id="stats-completed" class="stat-item">0 done</span>
+                    </div>
+                    <button type="button" class="btn-add-header" id="add-header-btn" title="Add new task">
+                        <span class="btn-icon">+</span>
+                    </button>
                 </div>
             </div>
         </header>
@@ -33,7 +38,7 @@
         <!-- Main Content -->
         <main class="app-main">
             <!-- Add Todo Section -->
-            <section class="add-todo-section">
+            <section class="add-todo-section hidden" id="add-todo-section">
                 <div class="voice-controls">
                     <label for="language-select" class="option-label">Voice Language</label>
                     <select id="language-select" class="option-input language-select">
@@ -51,12 +56,13 @@
                         <button type="button" class="btn-voice" id="voice-btn" title="Voice input">
                             <span class="btn-icon">🎤</span>
                         </button>
-                        <button type="submit" class="btn-add" id="add-btn">
-                            <span class="btn-icon">+</span>
-                            Add
+                        <button type="submit" class="btn-add-form" title="Add task">
+                            <span class="btn-icon">✓</span>
+                        </button>
+                        <button type="button" class="btn-discard" id="discard-btn" title="Discard">
+                            <span class="btn-icon">✕</span>
                         </button>
                     </div>
-
 
                     <div class="form-options">
                         <div class="option-group">
@@ -109,7 +115,7 @@
                 <div id="empty-state" class="empty-state">
                     <div class="empty-icon">📝</div>
                     <h2 class="empty-title">No tasks yet</h2>
-                    <p class="empty-text">Add your first task to get started</p>
+                    <p class="empty-text">Click the + button to add your first task</p>
                 </div>
             </section>
         </main>
